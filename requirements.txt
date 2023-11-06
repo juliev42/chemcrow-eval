@@ -1,0 +1,4 @@
+argparse
+python-dotenv
+pandas
+scikit-learn
