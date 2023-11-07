@@ -1,5 +1,5 @@
 argparse
-python-dotenv
+dotenv
 pandas
 scikit-learn
 chemcrow
