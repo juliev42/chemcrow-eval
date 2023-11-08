@@ -29,9 +29,10 @@ Multi-Stage Reasoning Without RAG
 Multi-Stage Reasoning With RAG
 0. Prompt to think like a chemistry professor grading an important exam
 1. Break down the response into steps, further break down into assumed facts
-2. Retrieve relevant reference information for each step from a database, e.g. PubMed or SERP
-2. Evaluate each fact in each individual step for correctness using the reference materials
-3. Evaluate the entirety of the task for correctness 
+2. Retrieve relevant reference information for each step using tools from a database, e.g. Google search or a scientific database
+3. Evaluate each fact in each individual step for correctness using the reference materials
+4. Evaluate the entirety of the task for correctness 
 
-
+Future: Few-Shot Learning with Multi-Stage Reasoning
+Similar to above, but prompt with a few expert-annotated examples. 
 

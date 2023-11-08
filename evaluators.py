@@ -15,7 +15,7 @@ load_dotenv()
 class BaseEvaluator():
     def __init__(self, llm = None):
 
-        self.llm = llm if llm != None else OpenAI(temperature=0, model_name='gpt-4')
+        self.llm = llm if llm != None else OpenAI(temperature=0, model_name='gpt-3.5')
        
         self.prefix = """You are a chemistry professor evaluating your student's answer to a chemistry question. It is important to evaluate the factual correctness of their 
         You have access to the following tools:"""
@@ -23,7 +23,7 @@ class BaseEvaluator():
         self.suffix = """Begin! Check if the answer addresses the question accurately and completely. 
 
         Question: {question}
-        Answer: {answer}
+        Student's Answer: {answer}
         {agent_scratchpad}"""
 
         self.tools = self.get_tools()
@@ -41,12 +41,27 @@ class BaseEvaluator():
     
     def run(self, question, answer, agent_scratchpad=None):
         return self.agent_executor.run(question=question, answer=answer, agent_scratchpad=agent_scratchpad)
+    
+
+
+class SearchEvaluator(BaseEvaluator):
+    def get_tools(self):
+        search = SerpAPIWrapper()
+        tools = [
+            Tool(
+                name="Search",
+                func=search.run,
+                description="useful for verifying each fact in the student's answer",
+            )
+        ]
+        return tools
 
 
 
 
 
-BaseEvaluator().run(question="What is the capital of California?", answer="Sacramento")
+
+SearchEvaluator().run(question="What is the capital of California?", answer="Sacramento")
 
 
     
