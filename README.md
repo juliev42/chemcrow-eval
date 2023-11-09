@@ -18,15 +18,18 @@ compare a few MRKL (Modular Reasoning, Knowledge & Language) models in evaluatio
 ## A Few Evaluation Approaches
 
 Baseline: 
+
 0. Prompt to think like a chemistry professor grading an important exam
 
 Multi-Stage Reasoning Without RAG
+
 0. Prompt to think like a chemistry professor grading an important exam
 1. Break down the response into steps, further break down into assumed facts
 2. Evaluate each fact in each individual step for correctness and coherenece
 3. Evaluate the entirety of the task for correctness 
 
 Multi-Stage Reasoning With RAG
+
 0. Prompt to think like a chemistry professor grading an important exam
 1. Break down the response into steps, further break down into assumed facts
 2. Retrieve relevant reference information for each step using tools from a database, e.g. Google search or a scientific database
@@ -34,5 +37,6 @@ Multi-Stage Reasoning With RAG
 4. Evaluate the entirety of the task for correctness 
 
 Future: Few-Shot Learning with Multi-Stage Reasoning
+
 Similar to above, but prompt with a few expert-annotated examples. 
 
